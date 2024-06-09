@@ -40,7 +40,7 @@ function Rotator({ children }: { children: ReactNode }): JSX.Element {
 
 function ThreeScene() {
   const [key, setKey] = useState(0);
-  const [cubeMap, setCubeMap] = useState("cambridge");
+  const [cubeMap, setCubeMap] = useState("ub");
   const image = new Image();
   image.src = `/${cubeMap}-cube.png`;
   image.style.position = "absolute";
@@ -57,8 +57,9 @@ function ThreeScene() {
   }, [cubeMap]);
   useControls("Environment", {
     textureMap: {
-      value: "cambridge",
+      value: "ub",
       options: {
+        UB: "ub",
         Garden: "garden",
         Cambridge: "cambridge",
       },
@@ -106,7 +107,7 @@ function ThreeScene() {
 
 function App() {
   return (
-    <div className='App h-screen'>
+    <div className='h-screen App'>
       <Canvas>
         <ThreeScene />
       </Canvas>
