@@ -10,7 +10,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import "./App.css";
 import { useControls } from "leva";
 import { Group } from "three";
-import { ReactNode, Suspense, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 function ReflectiveSphere(): JSX.Element {
   const tweakableProps = useControls({
@@ -70,7 +70,7 @@ function ThreeScene() {
     },
   });
 
-  const cambridgeMap = useEnvironment({
+  const envMap = useEnvironment({
     files: ["px.png", "nx.png", "py.png", "ny.png", "pz.png", "nz.png"].map(
       (x) => `/${cubeMap}/${x}`
     ),
@@ -82,7 +82,7 @@ function ThreeScene() {
       <pointLight position={[5, 5, 5]} intensity={1} />
       <pointLight position={[-3, -3, 2]} />
       <OrbitControls />
-      <Environment key={key} map={cambridgeMap} background />
+      <Environment key={key} map={envMap} background />
       <CubeCamera>
         {/* @ts-ignore */}
         {(texture) => (
